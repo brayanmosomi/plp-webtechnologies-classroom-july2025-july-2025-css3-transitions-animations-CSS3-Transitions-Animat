@@ -1,0 +1,83 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #0f172a; /* dark background like tinted style */
+  color: #e2e8f0;
+  margin: 40px;
+}
+
+h1 {
+  margin-bottom: 10px;
+  color: #38bdf8; /* bluish touch */
+}
+
+#car {
+  width: 200px;
+  height: 100px;
+  margin: 40px auto;
+  background: linear-gradient(to right, #333, #555); /* base car color */
+  border-radius: 20px;
+  position: relative;
+  transition: background 0.6s, transform 0.5s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* wheels */
+#car::before,
+#car::after {
+  content: "";
+  width: 40px;
+  height: 40px;
+  background: #111;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -20px;
+}
+
+#car::before {
+  left: 20px;
+}
+
+#car::after {
+  right: 20px;
+}
+
+/* Button styles */
+button {
+  background: #1d4ed8;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  margin: 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background: #1e40af;
+}
+
+/* Animations */
+@keyframes drive {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(200px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes shine {
+  0%   { filter: brightness(1); }
+  50%  { filter: brightness(1.6); }
+  100% { filter: brightness(1); }
+}
+
+/* Classes triggered by JS */
+.driving {
+  animation: drive 3s ease-in-out;
+}
+
+.shining {
+  animation: shine 2s ease-in-out;
+}
